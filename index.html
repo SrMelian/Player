@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Mukta+Mahee" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Reproductor</title>
+</head>
+
+<body>
+    <div class="tile is-ancestor">
+        <div class="tile is-parent is-4 card">
+            <header class="tile is-child header">
+                <svg class="icon">
+                    <use xlink:href="#medium"></use>
+                </svg>
+                <span class="title is-1">Manufy</span>
+                <svg class="icon account">
+                    <use xlink:href="#black"></use>
+                </svg>
+            </header>
+        </div>
+
+        <section class="tile is-parent is-3 is-vertical card">
+            <div id="player" class="tile is-child is-centered">
+                <div id="title" class="title is-3">Título del archivo</div>
+                <div id="svgAudioAnimation"></div>
+            </div>
+            <div class="tile is-child card-footer">
+                <div id="offset" class="card-footer-item is-left" style="opacity: 0; height: 0;">
+                    <svg class="icon">
+                        <use xlink:href="#subtitles"></use>
+                    </svg>
+                    <svg class="icon">
+                        <use xlink:href="#mute-volume-adjustment"></use>
+                    </svg>
+                    <div>
+                        <form>
+                            <input type="range" name="rangeVolume" min="0" max="4" value="4">
+                        </form>
+                        <div>
+                            <div class="volumeSignal"></div>
+                            <div class="volumeSignal"></div>
+                            <div class="volumeSignal"></div>
+                            <div class="volumeSignal"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer-item">
+                    <svg id="backwardButton" class="icon">
+                        <use xlink:href="#backward-track"></use>
+                    </svg>
+                    <svg id="playButton" class="icon">
+                        <use xlink:href="#music-player-play"></use>
+                    </svg>
+                    <svg id="tenSecsButton" class="icon">
+                        <use xlink:href="#redo-arrow-symbol"></use>
+                    </svg>
+                    <svg id="forwardButton" class="icon reverse">
+                        <use xlink:href="#backward-track"></use>
+                    </svg>
+                </div>
+                <div class="card-footer-item is-right">
+                    <svg id="subtitlesButton" class="icon">
+                        <use xlink:href="#subtitles"></use>
+                    </svg>
+                    <svg id="muteVolumeButton" class="icon">
+                        <use xlink:href="#mute-volume-adjustment"></use>
+                    </svg>
+                    <div id="volumeContainer">
+                        <form>
+                            <input type="range" id="rangeVolume" name="rangeVolume" min="0" max="4" value="4">
+                        </form>
+                        <div id="volume">
+                            <div class="volumeSignal"></div>
+                            <div class="volumeSignal"></div>
+                            <div class="volumeSignal"></div>
+                            <div class="volumeSignal"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="tile is-parent is-1 card">
+            <nav class="panel">
+                <p class="panel-heading">
+                    Lista de archivos
+                </p>
+            </nav>
+        </section>
+
+        <footer class="tile is-parent is-4 card">
+            <div class="tile is-child is-centered">
+                <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="text-decoration: none;">
+                    <svg>
+                        <use xlink:href="assets/icons/by.svg#svg2759"></use>
+                    </svg>
+                </a>
+                <br />Ésta obra está bajo una
+                <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">licencia de Creative Commons Reconocimiento 4.0 Internacional</a>.
+                <span class="title is-6">By Manuel Melián Hernández</span>
+            </div>
+        </footer>
+    </div>
+
+    <div hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="spinner-player" viewBox="0 0 100 100">
+                <rect fill="#000" width="3" height="100" transform="translate(0) rotate(180 3 50)">
+                    <animate attributeName="height" attributeType="XML" dur="1s" values="30; 100; 30" repeatCount="indefinite" />
+                </rect>
+                <rect x="17" fill="#000" width="3" height="100" transform="translate(0) rotate(180 20 50)">
+                    <animate attributeName="height" attributeType="XML" dur="1s" values="30; 100; 30" repeatCount="indefinite" begin="0.1s" />
+                </rect>
+                <rect x="40" fill="#000" width="3" height="100" transform="translate(0) rotate(180 40 50)">
+                    <animate attributeName="height" attributeType="XML" dur="1s" values="30; 100; 30" repeatCount="indefinite" begin="0.3s" />
+                </rect>
+                <rect x="60" fill="#000" width="3" height="100" transform="translate(0) rotate(180 58 50)">
+                    <animate attributeName="height" attributeType="XML" dur="1s" values="30; 100; 30" repeatCount="indefinite" begin="0.5s" />
+                </rect>
+                <rect x="80" fill="#000" width="3" height="100" transform="translate(0) rotate(180 76 50)">
+                    <animate attributeName="height" attributeType="XML" dur="1s" values="30; 100; 30" repeatCount="indefinite" begin="0.1s" />
+                </rect>
+            </symbol>
+            <symbol id="reproductor-de-video" viewBox="0 0 58 58">
+                <title>reproductor-de-video</title>
+                <path d="M57,6H47H11H1C0.448,6,0,6.447,0,7v11v11v11v11c0,0.553,0.448,1,1,1h10h36h10c0.552,0,1-0.447,1-1V40V29V18V7 C58,6.447,57.552,6,57,6z M56,28h-8v-9h8V28z M46,18v10H12V18V8h34V18z M10,28H2v-9h8V28z M2,30h8v9H2V30z M12,40V30h34v10v10H12V40 z M48,30h8v9h-8V30z M56,8v9h-8V8H56z M2,8h8v9H2V8z M2,50v-9h8v9H2z M56,50h-8v-9h8V50z"
+                />
+            </symbol>
+            <symbol id="reproductor-de-musica" viewBox="0 0 55 55">
+                <title>reproductor-de-musica</title>
+                <path d="M52.66,0.249c-0.216-0.189-0.501-0.275-0.789-0.241l-31,4.011C20.373,4.084,20,4.507,20,5.01v6.017v4.212v25.384 C18.174,38.428,15.273,37,12,37c-5.514,0-10,4.037-10,9s4.486,9,10,9s10-4.037,10-9c0-0.232-0.019-0.46-0.039-0.687 C21.974,45.248,22,45.189,22,45.121V16.118l29-3.753v18.257C49.174,28.428,46.273,27,43,27c-5.514,0-10,4.037-10,9s4.486,9,10,9 c5.464,0,9.913-3.966,9.993-8.867c0-0.013,0.007-0.024,0.007-0.037V11.227V7.016V1C53,0.712,52.876,0.438,52.66,0.249z M12,53 c-4.411,0-8-3.141-8-7s3.589-7,8-7s8,3.141,8,7S16.411,53,12,53z M43,43c-4.411,0-8-3.141-8-7s3.589-7,8-7s8,3.141,8,7 S47.411,43,43,43z M22,14.101v-3.074V5.889l29-3.752v4.879v3.332L22,14.101z"
+                />
+            </symbol>
+            <symbol id="medium" viewBox="0 0 393.541 393.541">
+                <title>medium</title>
+                <path style="fill:#00FD8D;" d="M384.045,363.079L262.84,304.812L261.927,40.68c-0.021-6.166,6.416-10.229,11.973-7.557 l114.908,55.256c2.893,1.391,4.733,4.318,4.733,7.528v261.201C393.54,361.989,388.443,365.194,384.045,363.079z"
+                />
+                <path style="fill:#00E470;" d="M262.84,304.812L131.66,241.74L257.948,33.818c2.231-3.673,6.886-5.054,10.759-3.192l116.514,56.029 c4.454,2.142,6.085,7.661,3.51,11.879L262.84,304.812z"
+                />
+                <path style="fill:#00C967;" d="M262.84,304.812L131.66,241.74L11.421,45.942c-3.35-5.455,2.479-11.914,8.248-9.14L131.66,90.655 L262.84,304.812z"
+                />
+                <path style="fill:#00AD6C;" d="M122.164,363.078l-118.41-56.94C1.459,305.034,0,302.713,0,300.167V37.548 c0-4.726,4.937-7.831,9.197-5.782L131.66,90.655v266.452C131.66,361.988,126.562,365.193,122.164,363.078z"
+                />
+            </symbol>
+            <symbol id="black" viewBox="0 0 438.529 438.529">
+                <title>black</title>
+                <path d="M219.265,219.267c30.271,0,56.108-10.71,77.518-32.121c21.412-21.411,32.12-47.248,32.12-77.515 c0-30.262-10.708-56.1-32.12-77.516C275.366,10.705,249.528,0,219.265,0S163.16,10.705,141.75,32.115 c-21.414,21.416-32.121,47.253-32.121,77.516c0,30.267,10.707,56.104,32.121,77.515 C163.166,208.557,189.001,219.267,219.265,219.267z"
+                />
+                <path d="M419.258,335.036c-0.668-9.609-2.002-19.985-3.997-31.121c-1.999-11.136-4.524-21.457-7.57-30.978 c-3.046-9.514-7.139-18.794-12.278-27.836c-5.137-9.041-11.037-16.748-17.703-23.127c-6.666-6.377-14.801-11.465-24.406-15.271 c-9.617-3.805-20.229-5.711-31.84-5.711c-1.711,0-5.709,2.046-11.991,6.139c-6.276,4.093-13.367,8.662-21.266,13.708 c-7.898,5.037-18.182,9.609-30.834,13.695c-12.658,4.093-25.361,6.14-38.118,6.14c-12.752,0-25.456-2.047-38.112-6.14 c-12.655-4.086-22.936-8.658-30.835-13.695c-7.898-5.046-14.987-9.614-21.267-13.708c-6.283-4.093-10.278-6.139-11.991-6.139 c-11.61,0-22.222,1.906-31.833,5.711c-9.613,3.806-17.749,8.898-24.412,15.271c-6.661,6.379-12.562,14.086-17.699,23.127 c-5.137,9.042-9.229,18.326-12.275,27.836c-3.045,9.521-5.568,19.842-7.566,30.978c-2,11.136-3.332,21.505-3.999,31.121 c-0.666,9.616-0.998,19.466-0.998,29.554c0,22.836,6.949,40.875,20.842,54.104c13.896,13.224,32.36,19.835,55.39,19.835h249.533 c23.028,0,41.49-6.611,55.388-19.835c13.901-13.229,20.845-31.265,20.845-54.104C420.264,354.502,419.932,344.652,419.258,335.036 z"
+                />
+            </symbol>
+            <symbol id="signs" viewBox="0 0 348.142 348.142">
+                <title>signs</title>
+                <path d="m345.207,294.423l-152.689-262.191c-3.867-6.64-10.763-10.604-18.447-10.604s-14.58,3.964-18.447,10.604l-152.689,262.191c-3.892,6.684-3.915,14.677-0.06,21.382 3.854,6.705 10.773,10.708 18.507,10.708h305.378c7.734,0 14.653-4.003 18.507-10.708 3.854-6.705 3.832-14.698-0.06-21.382zm-12.945,13.907c-0.55,0.957-2.188,3.184-5.502,3.184h-305.378c-3.314,0-4.953-2.227-5.502-3.184-0.55-0.958-1.65-3.493 0.018-6.357l152.688-262.192c1.657-2.846 4.388-3.153 5.485-3.153s3.828,0.307 5.485,3.153l152.689,262.191c1.668,2.864 0.568,5.4 0.017,6.358z"
+                />
+            </symbol>
+            <symbol id="subtitles" viewBox="0 0 426.667 426.667">
+                <title>subtitles</title>
+                <path d="M384,42.667H42.667C19.2,42.667,0,61.867,0,85.333v256C0,364.8,19.2,384,42.667,384H384 c23.467,0,42.667-19.2,42.667-42.667v-256C426.667,61.867,407.467,42.667,384,42.667z M42.667,213.333H128V256H42.667V213.333z M256,341.333H42.667v-42.667H256V341.333z M384,341.333h-85.333v-42.667H384V341.333z M384,256H170.667v-42.667H384V256z"
+                />
+            </symbol>
+            <symbol id="backward-track" viewBox="0 0 348.491 348.491">
+                <title>backward-track</title>
+                <path id="XMLID_619_" d="M334.241,28.174c-8.757-4.617-19.361-4-27.54,1.586L125.586,153.723 c-6.479,4.434-10.365,11.773-10.395,19.639c-0.023,7.848,3.825,15.219,10.28,19.697l181.098,125.566 c8.165,5.662,18.799,6.322,27.602,1.707c8.803-4.602,14.32-13.711,14.32-23.654V51.797 C348.491,41.902,343.004,32.809,334.241,28.174z"
+                />
+                <path id="XMLID_618_" d="M31.518,14.524C14.112,14.524,0,28.637,0,46.043v256.406c0,17.406,14.112,31.518,31.518,31.518 c17.406,0,31.518-14.111,31.518-31.518V46.043C63.036,28.637,48.924,14.524,31.518,14.524z"
+                />
+            </symbol>
+            <symbol id="mute-volume-adjustment" viewBox="0 0 196.78 196.78">
+                <title>mute-volume-adjustment</title>
+                <path style="fill-rule:evenodd;clip-rule:evenodd;" d="M144.447,3.547L80.521,53.672H53.674c-13.227,0-17.898,4.826-17.898,17.898 v26.4v27.295c0,13.072,4.951,17.898,17.898,17.898h26.848l63.926,50.068c7.668,4.948,16.558,6.505,16.558-7.365V10.914 C161.005-2.956,152.115-1.4,144.447,3.547z"
+                />
+            </symbol>
+            <symbol id="music-player-pause-lines" viewBox="0 0 232.679 232.679">
+                <title>music-player-pause-lines</title>
+                <path style="fill-rule:evenodd;clip-rule:evenodd;" d="M80.543,0H35.797c-9.885,0-17.898,8.014-17.898,17.898v196.883 c0,9.885,8.013,17.898,17.898,17.898h44.746c9.885,0,17.898-8.013,17.898-17.898V17.898C98.44,8.014,90.427,0,80.543,0z M196.882,0 h-44.746c-9.886,0-17.899,8.014-17.899,17.898v196.883c0,9.885,8.013,17.898,17.899,17.898h44.746 c9.885,0,17.898-8.013,17.898-17.898V17.898C214.781,8.014,206.767,0,196.882,0z"
+                />
+            </symbol>
+            <symbol id="music-player-play" viewBox="0 0 232.153 232.153">
+                <title>music-player-play</title>
+                <path style="fill-rule:evenodd;clip-rule:evenodd;" d="M203.791,99.628L49.307,2.294c-4.567-2.719-10.238-2.266-14.521-2.266 c-17.132,0-17.056,13.227-17.056,16.578v198.94c0,2.833-0.075,16.579,17.056,16.579c4.283,0,9.955,0.451,14.521-2.267 l154.483-97.333c12.68-7.545,10.489-16.449,10.489-16.449S216.471,107.172,203.791,99.628z"
+                />
+            </symbol>
+            <symbol id="redo-arrow-symbol" viewBox="0 0 40.499 40.5">
+                <title>redo-arrow-symbol</title>
+                <path d="M39.622,21.746l-6.749,6.75c-0.562,0.562-1.326,0.879-2.122,0.879s-1.56-0.316-2.121-0.879l-6.75-6.75 c-1.171-1.171-1.171-3.071,0-4.242c1.171-1.172,3.071-1.172,4.242,0l1.832,1.832C27.486,13.697,22.758,9.25,17,9.25 c-6.064,0-11,4.935-11,11c0,6.064,4.936,11,11,11c1.657,0,3,1.343,3,3s-1.343,3-3,3c-9.373,0-17-7.626-17-17s7.627-17,17-17 c8.936,0,16.266,6.933,16.936,15.698l1.442-1.444c1.172-1.172,3.072-1.172,4.242,0C40.792,18.674,40.792,20.574,39.622,21.746z"
+                />
+            </symbol>
+        </svg>
+    </div>
+
+    <script src="js/lib/jquery-3.3.1.js"></script>
+    <script src="js/lib/TweenMax.min.js"></script>
+    <script src="js/media.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+$grey:         hsl(0, 0%, 48%) !default;
+$grey-dark:    hsl(0, 0%, 29%) !default;
+$grey-darker:  hsl(0, 0%, 21%) !default;
+$grey-lighter: hsl(0, 0%, 86%) !default;
+$white:        hsl(0, 0%, 100%) !default;
+$white-ter:    hsl(0, 0%, 96%) !default;
+$black:        hsl(0, 0%, 4%) !default;
+$blue:         hsl(217, 71%,  53%) !default;
+
+$text: $grey-dark !default;
+$text-light: $grey !default;
+$text-strong: $grey-darker !default;
+$border: $grey-lighter !default;
+$weight-light: 300 !default;
+$weight-semibold: 600 !default;
+$title-color: $grey-darker !default;
+$title-weight: $weight-semibold !default;
+$title-strong-color: inherit !default;
+$title-strong-weight: inherit !default;
+
+$size-1: 3rem !default;
+$size-2: 2.5rem !default;
+$size-3: 2rem !default;
+$size-4: 1.5rem !default;
+$size-5: 1.25rem !default;
+$size-6: 1rem !default;
+$size-7: 0.75rem !default;
+
+$sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7 !default;
+
+$title-size: $size-3 !default;
+
+$background: $white-ter !default;
+$radius: 3px !default;
+$link-active-border: $grey-dark !default;
+$link-active: $grey-darker !default;
+$link: $blue !default;
+
+/* Panel */
+$panel-item-border: 1px solid $border !default;
+
+$panel-heading-background-color: $background !default;
+$panel-heading-color: $text-strong !default;
+$panel-heading-line-height: 1.25 !default;
+$panel-heading-padding: 0.5em 0.75em !default;
+$panel-heading-radius: $radius !default;
+$panel-heading-size: 1.25em !default;
+$panel-heading-weight: $weight-light !default;
+
+$panel-tab-border-bottom: 1px solid $border !default;
+$panel-tab-active-border-bottom-color: $link-active-border !default;
+$panel-tab-active-color: $link-active !default;
+
+$panel-list-item-color: $text !default;
+$panel-list-item-hover-color: $link !default;
+
+$panel-block-color: $text-strong !default;
+$panel-block-hover-background-color: $background !default;
+$panel-block-active-border-left-color: $link !default;
+$panel-block-active-color: $link-active !default;
+$panel-block-active-icon-color: $link !default;
+
+$panel-icon-color: $text-light !default;

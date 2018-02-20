@@ -1,0 +1,238 @@
+body {
+    font-family: 'Mukta Mahee', sans-serif;
+}
+
+svg.icon {
+    width: 3em;
+    height: 3em;
+    margin: 10px 10px 0 10px;
+    vertical-align: top;
+    &>use {
+        cursor: pointer;
+    }
+    &.reverse {
+        transform: rotateY(180deg);
+        &:hover {
+            transform: rotateY(180deg) scale(1.1) rotate(5deg);
+        }
+    }
+    &.account {
+        float: right;
+    }
+    &:hover {
+        fill: $grey-dark;
+        transform: scale(1.1) rotate(-5deg);
+    }
+}
+
+.is-disabled {
+    fill: $grey;
+}
+
+#volumeContainer {
+    position: relative;
+    align-self: flex-end;
+    padding-bottom: .7em;
+}
+
+#volume {
+    display: flex;
+    font-size: 0;
+    align-items: flex-end;
+    border-bottom: 10px solid #000;
+    .volumeSignal {
+        display: inline-block;
+        width: 12px;
+        height: 6px;
+        margin-right: 2px;
+        background-color: #000;
+        border-radius: 30px 30px 0px 0px;
+        transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        &:nth-child(4) {
+            margin-right: 0;
+        }
+    }
+}
+
+#rangeVolume {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    width: 54px;
+    height: 5em;
+    z-index: 3;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.title {
+    color: $title-color;
+    font-size: $title-size;
+    font-weight: $title-weight;
+    line-height: 1.125;
+    strong {
+        color: $title-strong-color;
+        font-weight: $title-strong-weight;
+    }
+    &+.highlight {
+        margin-top: -0.75rem;
+    }
+    &:not(.is-spaced)+.subtitle {
+        margin-top: -1.5rem;
+    } // Sizes
+    @each $size in $sizes {
+        $i: index($sizes, $size);
+        &.is-#{$i} {
+            font-size: $size;
+        }
+    }
+}
+
+footer svg {
+    width: 120px;
+    height: 42px;
+    vertical-align: middle;
+}
+
+video {
+    margin-top: 10px;
+}
+
+/* SVG Audio */
+
+.st0 {
+    fill: none;
+    stroke: #486CA3;
+    stroke-width: 5.6943;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+}
+
+.st1 {
+    fill: #7691BA;
+}
+
+.st2 {
+    fill: none;
+    stroke: #1A478C;
+    stroke-width: 5.8983;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+}
+
+.st3 {
+    fill: #1A478C;
+}
+
+.st4 {
+    fill: #486CA3;
+}
+
+.st5 {
+    fill: none;
+    stroke: #1A478C;
+    stroke-width: 7.5924;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+}
+
+.st6 {
+    fill: #FFFFFF;
+}
+
+.st7 {
+    fill: none;
+    stroke: #7691BA;
+    stroke-width: 13.2866;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+}
+
+.st8 {
+    fill: none;
+    stroke: #486CA3;
+    stroke-width: 4.4082;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+}
+
+.st9 {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 0.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+}
+
+.play-text {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translateX(-50%);
+    font-size: 35px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    /*   text-transform: uppercase; */
+    color: #1A478C;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.pause-text {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translateX(-50%);
+    font-size: 35px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    /*   text-transform: uppercase; */
+    color: #486CA3;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.active-box {
+    width: 40%;
+    max-width: 350px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    display: none;
+}
+
+#audioContainer {
+    width: 40%;
+    max-width: 300px;
+    max-height: 50vh;
+    margin: auto;
+    display: block;
+}
+
+#hover-circle .st4 {
+    transition: all 0.25s;
+}
+
+#ripple-circle circle {
+    opacity: 0.5;
+}
+
+.audio-overlay {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #fff;
+    z-index: 100;
+    bottom: 0;
+}
